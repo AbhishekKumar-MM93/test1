@@ -6,6 +6,7 @@ const ProductForm = () => {
   const [data, setData] = useState();
   const [category, setCategory] = useState();
   const [subCate, setSubCate] = useState();
+  const [product, setProduct] = useState();
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -13,9 +14,10 @@ const ProductForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(subCate);
+    console.log(data);
   };
 
+  //<----------------Categeory Nd Subcategory------------>
   useEffect(() => {
     http("/category")
       .then((res) => setCategory(res.data.result))
@@ -24,10 +26,20 @@ const ProductForm = () => {
   }, []);
 
   useEffect(() => {
-    http("/subCategory").then((res) => {
-        setSubCate(res.data)
-    }).catch((er)=>console.log(er))
-},[]);
+    http("/subCategory")
+      .then((res) => {
+        setSubCate(res.data);
+      })
+      .catch((er) => console.log(er));
+  }, []);
+
+  //----------------------------product-----------------------------//
+
+  useEffect(() => {
+    http("/pro")
+      .then((res) => setProduct(res.data.result))
+      .catch((err) => console.log(err));
+  });
 
   return (
     <Form onChange={handleChange} onSubmit={handleSubmit}>
@@ -39,7 +51,7 @@ const ProductForm = () => {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Category</Form.Label>
         <Form.Select name="category">
-        <option>---Select a Category---</option>
+          <option>---Select a Category---</option>
           {category?.map((e) => (
             <option value={e._id}>{e.category}</option>
           ))}
@@ -48,14 +60,14 @@ const ProductForm = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>SubCategory</Form.Label>
-        <Form.Select name="subCategory" >
-          <option>---Select a SubCategory---</option>
-          {subCate?.map((e) => (
-            
+        <Form.Select name="subCategory">
+          {/* <option>---Select a SubCategory---</option> */}
+          {subCate?.map((e) =>
             e.categoryFK._id === data?.category ? (
-              <option value={e._id}>{e.subCategory}</option> ) : ("")
-          )
-           
+              <option value={e._id}>{e.subCategory}</option>
+            ) : (
+              ""
+            )
           )}
         </Form.Select>
       </Form.Group>

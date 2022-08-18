@@ -6,8 +6,8 @@ import {Routes, Route} from "react-router-dom"
 import Login from './components/Login'
 // import NavBar from './components/Navbar';
 import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
 import ProductForm from './components/ProductForm';
+import Products from './components/Products';
 function App() {
  
 
@@ -18,9 +18,10 @@ function App() {
         
         <Route path='/'>
         
-          <Route path='/signUp' element={<Signup />} />
           <Route path='/' element={<Login/>} />
+          <Route path='/signUp' element={<Signup />} />
         <Route path='/productForm' element={<ProductForm/>} />
+        <Route path='/products' element={<Products/>} />
         </Route>
     </Routes>
       

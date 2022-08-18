@@ -22,7 +22,7 @@ function Signup() {
             title: 'SignUp Successfully',
             timer: 1500
           })
-      }}).catch((er)=>console.log(er))
+      }}).catch((er)=>console.log(er.message))
     }
 
   return (

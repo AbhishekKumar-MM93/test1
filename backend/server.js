@@ -9,17 +9,10 @@ import categoryRouter from "./routes/categoryRoute.js";
 import subCategoryRouter from "./routes/subCategoryRouter.js"
 import productRouter from "./routes/productRoute.js";
 
-
-
 const upload = multer()
-
-
 const app = express()
 dotenv.config()
-
-
 app.use(cors());
-
 app.use(express.json())
 app.use(upload.array());
 

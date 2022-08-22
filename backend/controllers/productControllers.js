@@ -14,7 +14,7 @@ async function createProduct(req, res) {
 async function getAllProduct(req, res) {
     try {
         let total = await Product.find().count()
-        let result = await Product.find()
+        let result = await Product.find().populate("subCategoryFK")
         res.status(200).send({
              total,result
         })

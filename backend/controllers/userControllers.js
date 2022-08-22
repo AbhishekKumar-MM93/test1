@@ -20,6 +20,7 @@ async function createUser(req, res) {
             email,
             password: hash
         })
+        console.log(req.body)
         res.status(201).send({
             sucess: true,
             result

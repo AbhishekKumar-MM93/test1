@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 import React, {useState} from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { http} from '../config/config'
@@ -14,7 +14,7 @@ function Signup() {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(data);
-      http.post('/', data).then((res) => {
+      http.post('/user', data).then((res) => {
         if (res.status===201) {
           Swal.fire({
             position: 'center',
@@ -22,7 +22,7 @@ function Signup() {
             title: 'SignUp Successfully',
             timer: 1500
           })
-      }}).catch((er)=>console.log(er.message))
+      }}).catch((er)=>console.log(er))
     }
 
   return (

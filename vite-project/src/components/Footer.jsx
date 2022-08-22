@@ -9,7 +9,7 @@ const Footer = () => {
         justifyContent="center"
         alignItems="center"
         className="mx-auto py-4 flex-wrap"
-        style={{ height: '80vh' }}
+        // style={{ height: '80vh' }}
       >
         <CDBBox display="flex" alignItems="center">
         </CDBBox>

@@ -64,7 +64,7 @@ const Login = () => {
           </Alert>
         )
       } */}
-        <Form.Group className="mx-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
@@ -72,7 +72,7 @@ const Login = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             name="password"

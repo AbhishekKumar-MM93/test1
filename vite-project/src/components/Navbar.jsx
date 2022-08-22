@@ -1,22 +1,30 @@
-import React from 'react'
-import {Navbar,Nav,Container} from "react-bootstrap"
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-
-const NavBar =()=> {
+const NavBar = () => {
   return (
-
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{
-      margin:'auto'
-    }} >
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      style={{
+        margin: "auto",
+      }}
+    >
       <Container>
-        <Nav.Link href='/'>
-        <Navbar.Brand >Portal</Navbar.Brand>
+        <Nav.Link href="/">
+          <Navbar.Brand>Portal</Navbar.Brand>
         </Nav.Link>
+        <Nav>
+          <Nav.Link href="/products">Product</Nav.Link>
+          <Nav.Link href="/productForm">Form</Nav.Link>
+        </Nav>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-          </Nav>
-          <Nav >
+          <Nav className="me-auto"></Nav>
+          <Nav>
             <Nav.Link href="/logIn">LogIn</Nav.Link>
             <Nav.Link eventKey={2} href="/signup">
               SignUp
@@ -25,9 +33,7 @@ const NavBar =()=> {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+  );
+};
 
-   
-  )
-}
-
-export default NavBar
+export default NavBar;
